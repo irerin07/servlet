@@ -13,6 +13,7 @@ public class RequestHeaderServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         printStartLine(req);
+        printHeaders(req);
     }
 
     private void printStartLine(HttpServletRequest req) {
@@ -35,11 +36,13 @@ public class RequestHeaderServlet extends HttpServlet {
     private void printHeaders(HttpServletRequest request){
         System.out.println("--- Headers Start---");
 
-        Enumeration<String> headerNames = request.getHeaderNames();
-        while (headerNames.hasMoreElements()){
-            String headerName = headerNames.nextElement();
-            System.out.println("headerName = " + headerName);
-        }
+//        Enumeration<String> headerNames = request.getHeaderNames();
+//        while (headerNames.hasMoreElements()){
+//            String headerName = headerNames.nextElement();
+//            System.out.println("headerName = " + headerName);
+//        }
+
+        request.getHeaderNames().asIterator().forEachRemaining(headerName -> System.out.println("headerName = " + headerName));
 
         System.out.println("--- Headers -end---");
         System.out.println();
