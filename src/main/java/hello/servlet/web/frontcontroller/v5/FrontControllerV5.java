@@ -21,6 +21,7 @@ import java.util.Map;
 @WebServlet(name = "frontControllerV5", urlPatterns = "/front-controller/v5/*")
 public class FrontControllerV5 extends HttpServlet {
 
+    //생성자 주입시에 final은 왜 붙이나?
     private final Map<String, Object> handlerMappingMap = new HashMap<>();
     private final List<MyHandlerAdapter> handlerAdapters = new ArrayList<>();
 
