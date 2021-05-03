@@ -25,27 +25,12 @@ import java.util.Map;
 public class FrontControllerV5 extends HttpServlet {
 
     //생성자 주입시에 final은 왜 붙이나?
-    private final Map<String, Object> handlerMappingMap = new HashMap<>();
-    private final List<MyHandlerAdapter> handlerAdapters = new ArrayList<>();
+    private final Map<String, Object> handlerMappingMap;
+    private final List<MyHandlerAdapter> handlerAdapters;
 
-    public FrontControllerV5(){
-        initHandlerMappingMap();
-
-        initHandlerAdapters();
-    }
-
-    private void initHandlerAdapters() {
-        handlerAdapters.add(new ControllerV3HandlerAdapter());
-    }
-
-    private void initHandlerMappingMap() {
-        handlerMappingMap.put("/front-controller/v5/v3/members/new-form", new MemberFormControllerV3());
-        handlerMappingMap.put("/front-controller/v5/v3/members/save", new MemberSaveControllerV3());
-        handlerMappingMap.put("/front-controller/v5/v3/members/", new MemberListControllerV3());
-
-        handlerMappingMap.put("/front-controller/v5/v4/members/new-form", new MemberFormControllerV4());
-        handlerMappingMap.put("/front-controller/v5/v4/members/save", new MemberSaveControllerV4());
-        handlerMappingMap.put("/front-controller/v5/v4/members/", new MemberListControllerV4());
+    public FrontControllerV5(Map<String, Object> handlerMappingMap, List<MyHandlerAdapter> handlerAdapters){
+        this.handlerMappingMap = handlerMappingMap;
+        this.handlerAdapters = handlerAdapters;
     }
 
     @Override
