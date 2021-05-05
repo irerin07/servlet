@@ -48,8 +48,6 @@ public class FrontControllerV5 extends HttpServlet{
 
         myView.render(handle.getModel(), req, resp);
 
-        boolean b = testHandler.usesPathPatterns();
-
     }
 
     private MyHandlerAdapter getHandlerAdapter(Object handler) {
