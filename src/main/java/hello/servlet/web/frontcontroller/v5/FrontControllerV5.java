@@ -19,13 +19,11 @@ public class FrontControllerV5 extends HttpServlet{
     //생성자 주입시에 final은 왜 붙이나?
     private final Map<String, Object> handlerMappingMap;
     private final List<MyHandlerAdapter> handlerAdapters;
-    private final TestHandler testHandler;
 
 
-    public FrontControllerV5(Map<String, Object> handlerMappingMap, List<MyHandlerAdapter> handlerAdapters, TestHandler testHandler){
+    public FrontControllerV5(Map<String, Object> handlerMappingMap, List<MyHandlerAdapter> handlerAdapters){
         this.handlerMappingMap = handlerMappingMap;
         this.handlerAdapters = handlerAdapters;
-        this.testHandler = testHandler;
     }
 
     @Override
