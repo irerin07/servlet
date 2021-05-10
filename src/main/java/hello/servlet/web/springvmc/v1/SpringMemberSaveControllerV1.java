@@ -21,6 +21,7 @@ public class SpringMemberSaveControllerV1 {
         int age = Integer.parseInt(request.getParameter("age"));
 
         Member memeber = new Member(username, age);
+        
         memberRepository.save(memeber);
 
         ModelAndView mv = new ModelAndView("save_result");
